@@ -107,3 +107,38 @@ echo "</pre>";
 И сразу видно комментарий с флагом, оставленный автором.  
 <img width="1919" height="987" alt="image" src="https://github.com/user-attachments/assets/b77002ee-d462-4b74-8658-a7c6442c548e" />  
 ```Флаг: BecauseSourceMapsAreGreatForDebuggingButNotForProduction``` 
+
+
+# Javascript - Obfuscation 3
+Заходя на сайт, просмотрю сразу исходный код. Вижу скрипт js.  
+<img width="1919" height="954" alt="image" src="https://github.com/user-attachments/assets/26bff843-44c8-42bd-a304-e9c0c83a7581" />  
+Для деобфуксации вставлю скрипт на сайт **https://deobfuscate.io/**. Он вывел результат:   
+```js
+function dechiffre(pass_enc) {
+  var pass = "70,65,85,88,32,80,65,83,83,87,79,82,68,32,72,65,72,65";
+  var tab = pass_enc.split(",");
+  var tab2 = pass.split(",");
+  var i, j, k, l = 0, m, n, o, p = "";
+  i = 0;
+  j = tab.length;
+  k = j + l + (n = 0);
+  n = tab2.length;
+  for (i = o = 0; i < (k = j = n); i++) {
+    o = tab[i - l];
+    p += String.fromCharCode(o = tab2[i]);
+    if (i == 5) break;
+  }
+  for (i = o = 0; i < (k = j = n); i++) {
+    o = tab[i - l];
+    if (i > 5 && i < k - 1) p += String.fromCharCode(o = tab2[i]);
+  }
+  p += String.fromCharCode(tab2[17]);
+  pass = p;
+  return pass;
+}
+String.fromCharCode(dechiffre("55,56,54,79,115,69,114,116,107,49,50"));
+h = window.prompt("Entrez le mot de passe / Enter password");
+alert(dechiffre(h));
+```
+Контрольная строка "55,56,54,79,115,69,114,116,107,49,50" представляет собой массив ASCII-кодов, которые, будучи переведенными в символы, дают нужный пароль.  
+```Флаг: 786OsErtk12```
